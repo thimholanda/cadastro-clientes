@@ -1,6 +1,8 @@
 <?php
     require_once 'init_clients.php';
 
+    if(!isset($_GET['cliente'])) header('Location: ./');
+
     function filter($var)
     {
         return $var->getNome() == $_GET['cliente'];
