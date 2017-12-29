@@ -42,7 +42,17 @@
             <ul class="list-group">
                 <li class="list-group-item" >
                     <h2 style="font-size: 1.5rem;"><strong>Email: </strong><?php echo $cliente->getEmail(); ?></h2>
-                    <h2 style="font-size: 1.5rem;"><strong>CPF: </strong><?php echo $cliente->getCPF(); ?></h2>
+                    <?php if($cliente->getType() == \codeeducation\Cliente\ClienteAbstract::TYPE_PF): ?>
+                        <h2 style="font-size: 1.5rem;"><strong>CPF (pessoa física): </strong><?php echo $cliente->getCPF(); ?></h2>
+                    <?php elseif ($cliente->getType() == \codeeducation\Cliente\ClienteAbstract::TYPE_PJ): ?>
+                        <h2 style="font-size: 1.5rem;"><strong>CNPJ (pessoa jurídica): </strong><?php echo $cliente->getCNPJ(); ?></h2>
+                    <?php endif; ?>
+                    <h2 style="font-size: 1.5rem;"><strong>Estrelas: </strong><?php echo $cliente->getEstrelas(); ?></h2>
+                    <?php if($cliente->getEndereco()): ?>
+                    <h2 style="font-size: 1.5rem;"><strong>Endereço de cobrança: </strong><?php echo $cliente->getEndereco(); ?></h2>
+                    <?php else: ?>
+                        <h2 style="font-size: 1.5rem;">Endereço de cobrança não informado.</h2>
+                    <?php endif; ?>
                 </li>
             </ul>
         </div>

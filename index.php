@@ -35,7 +35,8 @@
             <ul class="list-group">
                 <?php foreach ($clientesObj as $cliente): ?>
                     <li class="list-group-item" >
-                        <h2 class="card-title"><?php echo $cliente->getNome(); ?></h2>
+                        <h2><?php echo $cliente->getNome(); ?></h2>
+                        <h6><?php echo $cliente->getType() == \codeeducation\Cliente\ClienteAbstract::TYPE_PF ? 'Pessoa Física' : 'Pessoa Jurídica'; ?> | Estrelas: <?php echo $cliente->getEstrelas(); ?></h6>
                         <a href="detalhes.php?cliente=<?php echo $cliente->getNome(); ?>" class="card-link">Ver detalhes</a>
                     </li>
                 <?php endforeach; ?>
