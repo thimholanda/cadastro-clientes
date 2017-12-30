@@ -1,5 +1,7 @@
 <?php
 
+error_reporting(E_ALL);
+
 use codeeducation\Cliente\ClienteAbstract;
 use codeeducation\Cliente\Types\ClientePessoaJuridica;
 use codeeducation\Cliente\Types\ClientePessoaFisica;
@@ -100,7 +102,8 @@ foreach ($clientes as $clienteID => $atributos)
     }
 
     end($clientesObj)->setEstrelas($atributos['estrelas']);
-    end($clientesObj)->setEndereco($atributos['endereco']);
+
+    if(array_key_exists('endereco', $atributos))  end($clientesObj)->setEndereco($atributos['endereco']);
 
 }
 
