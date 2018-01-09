@@ -9,6 +9,7 @@ abstract class ClienteAbstract
     private $type;
     private $estrelas;
     private $endereco;
+    private $table;
     const TYPE_PF = 1;
     const TYPE_PJ = 2;
 
@@ -100,8 +101,6 @@ abstract class ClienteAbstract
     {
         $this->endereco = $endereco;
     }
-
-
 
     protected abstract function setClienteType();
 }

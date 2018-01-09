@@ -23,7 +23,7 @@
             <?php if(!isset($_GET['desc'])): ?>
                 <a href="?desc" class="btn btn-primary" style="float: right;" role="button">exibir de forma descendente</a>
             <?php else: ?>
-                <a href="/" class="btn btn-primary" style="float: right;" role="button">exibir de forma ascendente</a>
+                <a href="./" class="btn btn-primary" style="float: right;" role="button">exibir de forma ascendente</a>
             <?php endif; ?>
         </div>
     </div>
@@ -35,9 +35,9 @@
             <ul class="list-group">
                 <?php foreach ($clientesObj as $cliente): ?>
                     <li class="list-group-item" >
-                        <h2><?php echo $cliente->getNome(); ?></h2>
-                        <h6><?php echo $cliente->getType() == \codeeducation\Cliente\ClienteAbstract::TYPE_PF ? 'Pessoa Física' : 'Pessoa Jurídica'; ?> | Estrelas: <?php echo $cliente->getEstrelas(); ?></h6>
-                        <a href="detalhes.php?cliente=<?php echo $cliente->getNome(); ?>" class="card-link">Ver detalhes</a>
+                        <h2><?php echo $cliente['nome']; ?></h2>
+                        <h6><?php echo $cliente['type'] == \codeeducation\Cliente\ClienteAbstract::TYPE_PF ? 'Pessoa Física' : 'Pessoa Jurídica'; ?> | Estrelas: <?php echo $cliente['estrelas']; ?></h6>
+                        <a href="detalhes.php?cliente=<?php echo $cliente['nome']; ?>" class="card-link">Ver detalhes</a>
                     </li>
                 <?php endforeach; ?>
             </ul>
